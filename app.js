@@ -5,6 +5,7 @@ const confirmBtn = document.querySelector('#btn-confirm');
 const expensesList = document.querySelector('#expenses-list');
 const totalExpensesOutput = document.querySelector('#total-expenses');
 
+
 let totalExpenses = 0;
 
 const clear = () => {
@@ -18,6 +19,14 @@ confirmBtn.addEventListener('click', () => {
     const enteredAmount = amountInput.value;
 
     if(enteredReason.trim().length <= 0 || enteredAmount.trim().length <= 0 || enteredAmount <= 0) {
+        const alert = document.createElement('ion-alert');
+            alert.cssClass = 'my-custom-class';
+            alert.header = 'Alert';
+            alert.subHeader = 'Subtitle';
+            alert.message = 'This is an alert message.';
+            alert.buttons = ['OK'];
+        document.body.appendChild(alert);
+        alert.present();
         return;
     }
     console.log(enteredReason, enteredAmount);
